@@ -36,7 +36,13 @@ public final class RazorpaySwift {
     
     private init() {}
     
-    public static func initWithKey(key: String, andDelegate delegate: RazorpaySwiftProtocol) -> RazorpaySwift {
+    public static func initWithKey(key: String, andDelegate delegate: PaymentCompletionDelegate) -> RazorpaySwift {
+        RazorpaySwift.shared.key = key
+        RazorpaySwift.shared.delegate = delegate
+        return RazorpaySwift.shared
+    }
+    
+    public static func initWithKey(key: String, andDelegateWithData delegate: PaymentCompletionWithDataDelegate) -> RazorpaySwift {
         RazorpaySwift.shared.key = key
         RazorpaySwift.shared.delegate = delegate
         return RazorpaySwift.shared
