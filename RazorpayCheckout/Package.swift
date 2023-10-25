@@ -14,13 +14,16 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "RazorpayCheckout",
-            targets: ["RazorpayCheckout"]
+            targets: ["RazorpayCheckout", "Razorpay"]
         ),
     ],
     targets: [
+        .target(
+            name: "RazorpayCheckout"
+        ),
         .binaryTarget(
-            name: "RazorpayCheckout",
-            url:"https://github.com/razorpay/razorpay-pod/releases/download/\(packageVersion)/Razorpay.xcframework.zip",
+            name: "Razorpay",
+            url: "https://github.com/razorpay/razorpay-pod/releases/download/\(packageVersion)/Razorpay.xcframework.zip",
             checksum: "7a9aee4f56d1ff0bbedc19451b0c01f26640cb9b4b043502b6e8b3d1e1e3bbbe"
         )
     ],
