@@ -17,12 +17,10 @@ let package = Package(
             targets: ["RazorpayCheckout", "Razorpay"]
         ),
     ],
-    dependencies: [
-        .package(url: "https://github.com/razorpay/checkout-swift.git", branch: "swiftPackage/standardCheckout")
-    ],
     targets: [
         .target(
-            name: "RazorpayCheckout"
+            name: "RazorpayCheckout",
+            path: "RazorpayCheckout/Sources/RazorpayCheckoutCore"
         ),
         .binaryTarget(
             name: "Razorpay",
