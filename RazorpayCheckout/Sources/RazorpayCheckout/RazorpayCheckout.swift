@@ -32,10 +32,14 @@ public final class RazorpaySwift {
     private var razorpay: RazorpayCheckout?
     private var key: String?
     private var delegate: RazorpaySwiftProtocol?
+    private static let shared: RazorpaySwift = RazorpaySwift()
     
-    public func initWithKey(key: String, andDelegate delegate: RazorpaySwiftProtocol) {
-        self.key = key
-        self.delegate = delegate
+    private init() {}
+    
+    public static func initWithKey(key: String, andDelegate delegate: RazorpaySwiftProtocol) -> RazorpaySwift {
+        RazorpaySwift.shared.key = key
+        RazorpaySwift.shared.delegate = delegate
+        return RazorpaySwift.shared
     }
     
     public func open(withPayload payload: [AnyHashable: Any]) throws {
