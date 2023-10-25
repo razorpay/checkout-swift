@@ -17,6 +17,9 @@ let package = Package(
             targets: ["RazorpayCheckout", "Razorpay"]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/razorpay/checkout-swift.git", branch: "swiftPackage/standardCheckout")
+    ],
     targets: [
         .target(
             name: "RazorpayCheckout"
@@ -25,7 +28,7 @@ let package = Package(
             name: "Razorpay",
             url: "https://github.com/razorpay/razorpay-pod/releases/download/\(packageVersion)/Razorpay.xcframework.zip",
             checksum: "7a9aee4f56d1ff0bbedc19451b0c01f26640cb9b4b043502b6e8b3d1e1e3bbbe"
-        )
+        ),
     ],
     swiftLanguageVersions: [.v5]
 )
